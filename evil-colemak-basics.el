@@ -82,31 +82,24 @@ rotated; see evil-colemak-basics-rotate-t-f-j."
       "I" 'evil-window-bottom
       "zi" 'evil-scroll-column-right
       "zI" 'evil-scroll-right
-      "j" 'evil-forward-word-end
-      "J" 'evil-forward-WORD-end
-      "gj" 'evil-backward-word-end
-      "gJ" 'evil-backward-WORD-end
-      "k" (if (eq evil-search-module 'evil-search) 'evil-ex-search-next 'evil-search-next)
-      "K" (if (eq evil-search-module 'evil-search) 'evil-ex-search-previous 'evil-search-previous)
-      "gk" 'evil-next-match
-      "gK" 'evil-previous-match)
+      "h" 'evil-forward-word-end
+      "H" 'evil-forward-WORD-end
+      "gh" 'evil-backward-word-end
+      "gH" 'evil-backward-WORD-end
+      "j" (if (eq evil-search-module 'evil-search) 'evil-ex-search-next 'evil-search-next)
+      "J" (if (eq evil-search-module 'evil-search) 'evil-ex-search-previous 'evil-search-previous)
+      "gj" 'evil-next-match
+      "gJ" 'evil-previous-match)
     (evil-define-key '(normal visual) keymap
       "N" 'evil-join
       "gN" 'evil-join-whitespace
       "gl" 'evil-downcase
       "gL" 'evil-upcase)
     (evil-define-key 'normal keymap
-      "l" 'evil-undo
-      "u" 'evil-insert
-      "U" 'evil-insert-line
-      "gu" 'evil-insert-resume
-      "gU" 'evil-insert-0-line)
-    (evil-define-key 'visual keymap
-      "l" 'evil-downcase
-      "L" 'evil-upcase
-      "U" 'evil-insert)
-    (evil-define-key '(visual operator) keymap
-      "u" evil-inner-text-objects-map)
+      "t" 'evil-insert
+      "T" 'evil-insert-line
+      "gt" 'evil-insert-resume
+      "gT" 'evil-insert-0-line)
     (evil-define-key 'operator keymap
       "i" 'evil-forward-char)
     (when evil-colemak-basics-rotate-t-f-j
@@ -135,11 +128,12 @@ rotated; see evil-colemak-basics-rotate-t-f-j."
         ;; XXX https://github.com/hlissner/evil-snipe/issues/46
         (evil-snipe-def 1 inclusive "t" "T")
         (evil-snipe-def 1 exclusive "j" "J")
-        (evil-define-key '(motion normal visual) keymap
-          "t" 'evil-snipe-t
-          "T" 'evil-snipe-T
-          "j" 'evil-snipe-j
-          "J" 'evil-snipe-J))
+        ;;(evil-define-key '(motion normal visual) keymap
+        ;;  "t" 'evil-snipe-t
+        ;;  "T" 'evil-snipe-T
+         ;; "j" 'evil-snipe-j
+          ;;"J" 'evil-snipe-J)
+          )
        (t (user-error "Invalid evil-colemak-basics-char-jump-commands configuration"))))
     (when (eq evil-colemak-basics-layout-mod 'mod-dh)
       (evil-define-key '(motion normal visual) keymap
